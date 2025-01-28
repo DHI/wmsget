@@ -198,7 +198,8 @@ def query_grid(
         pandas.DataFrame: 
             Dataframe of geometries.
     """
-    root = os.path.join(Path(os.path.dirname(__file__)).parents[0], 'grid')
+    root = os.path.join(os.path.abspath(Path(os.path.dirname(__file__)).parents[0]), 'grid')
+
     match grid.lower():
         case 'dk1' | 'dk1km':
             df = read_dataframe(os.path.join(root, 'DKN_1km_euref89.zip')).set_index('KN1kmDK')
