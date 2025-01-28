@@ -198,13 +198,13 @@ def query_grid(
         pandas.DataFrame: 
             Dataframe of geometries.
     """
-    root = os.path.join(os.path.abspath(Path(os.path.dirname(__file__)).parents[0]), 'grid')
+    root = os.path.join(Path(os.path.abspath(os.path.dirname(__file__))).parents[0], 'grid')
 
     match grid.lower():
         case 'dk1' | 'dk1km':
-            df = read_dataframe(os.path.join(root, 'DKN_1km_euref89.shp')).set_index('KN1kmDK')
+            df = read_dataframe(os.path.join(root, 'DKN_1km_euref89.zip')).set_index('KN1kmDK')
         case 'dk10' | 'dk10km':
-            df = read_dataframe(os.path.join(root, 'DKN_10km_euref89.shp')).set_index('KN10kmDK')
+            df = read_dataframe(os.path.join(root, 'DKN_10km_euref89.zip')).set_index('KN10kmDK')
     
     if index is not None:
         return df.loc[index]
