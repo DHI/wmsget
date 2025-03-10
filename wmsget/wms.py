@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import warnings
 import time
 import logging
@@ -14,7 +13,6 @@ import rasterio as rst
 
 from rasterio import MemoryFile
 from shapely.geometry import Polygon, MultiPolygon
-from pyogrio import read_dataframe
 from owslib.wms import WebMapService
 
 from .geom import *
@@ -253,7 +251,8 @@ def get_layer_name(
 
     layers = {
         'dk' : {
-            'spring' : f'geodanmark_{str(year)}_{resstr}cm{bands}'
+            'spring' : f'geodanmark_{str(year)}_{resstr}cm{bands}',
+            'summer' : f'orto_sommer_{year}{bands}'
         }
     }
     
